@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, TextField } from '@mui/material';
-import { useLoginUserMutation } from '../../feature/authentication/users';
+import { useLoginUserMutation } from '../../redux-store/authentication/users';
 import { useNavigate } from 'react-router-dom';
 
 const CREDS = { username: 'mor_2314', password: '83r5^_' };

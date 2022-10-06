@@ -1,4 +1,4 @@
-import { useGetProductsQuery } from './feature/product';
+import { useGetProductsQuery } from './redux-store/product';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import { Routes as AppRoutess } from './routes';
 

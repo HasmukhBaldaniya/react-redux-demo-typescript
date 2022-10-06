@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Grid, LinearProgress } from '@mui/material';
 
-import { useGetProductsQuery } from '../../feature/product';
+import { useGetProductsQuery } from '../../redux-store/product';
 import ProductCard from './components/ProductCard';
 
 function ProductLanding() {
