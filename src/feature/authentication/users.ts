@@ -3,7 +3,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { axiosBaseQuery } from '../../utils/axios';
 import { baseUrl, getProductUrl } from '../../utils/endpoints';
 
-
 export const userApi = createApi({
     reducerPath: 'testUser',
     baseQuery: axiosBaseQuery({baseUrl: baseUrl()}),

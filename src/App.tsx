@@ -21,7 +21,9 @@ function App() {
   }
   
   const onFormSubmit = () => {
-    addUserDetails({name: 'hasmukh', email: 'hasmukh@smartsernsesolutions.com'}).then((res=> {
+    const formData = new FormData();
+    formData.append('name', 'Hasmukh')
+    addUserDetails(formData).then((res=> {
      // console.log('res =>', res.data);
     }))
   }
