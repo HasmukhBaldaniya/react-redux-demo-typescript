@@ -1,9 +1,27 @@
-import { useGetProductsQuery } from './redux-store/product';
-import { BrowserRouter, Routes } from 'react-router-dom';
-import { Routes as AppRoutess } from './routes';
+import { BrowserRouter, Routes } from "react-router-dom";
+import { Routes as AppRoutess } from "./routes";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { store } from "./redux-store/store";
+import { setToken } from "./redux-store/authentication/auth.slice";
 
 function App() {
-  return (
+  const dispatch = useDispatch<typeof store.dispatch>();
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    setIsLoading(true);
+    try {
+      const token = localStorage.getItem("token");
+      if (token) {
+        dispatch(setToken({ token }));
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+  return isLoading ? (
+    "Loading....."
+  ) : (
     <BrowserRouter>
       <AppRoutess />
     </BrowserRouter>

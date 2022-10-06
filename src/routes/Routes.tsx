@@ -1,44 +1,47 @@
-import React from 'react';
-import { Outlet, RouteObject, useRoutes } from 'react-router-dom';
-import { useLoginUserMutation } from '../redux-store/authentication/users';
-import Login from '../pages/Login';
-import ProductLanding from '../pages/Products/ProductLanding';
+import React from "react";
+import { Navigate, Outlet, RouteObject, useRoutes } from "react-router-dom";
+import Login from "../pages/Login";
+import ProductLanding from "../pages/Products/ProductLanding";
+import { getUserDetails } from "../redux-store/authentication/auth.slice";
+import { useSelector } from "react-redux";
 
 const PRIVATE: RouteObject[] = [
   {
-    path: '/product',
+    path: "/product",
     element: <Outlet />,
     children: [
       {
-        path: '',
+        path: "",
         element: <ProductLanding />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Navigate to={"product"} />,
   },
 ];
 
 const PUBLIC: RouteObject[] = [
   {
-    path: '/login',
+    path: "/login",
     element: <Outlet />,
     children: [
       {
-        path: '',
+        path: "",
         element: <Login />,
       },
     ],
   },
   {
-    path: '*',
-    element: <>Not found</>,
+    path: "*",
+    element: <Navigate to={"login"} />,
   },
 ];
 
 function Routes() {
-  const [, { data }] = useLoginUserMutation();
-  console.log(data?.data?.token);
-
-  return useRoutes(data?.token ? PRIVATE : PUBLIC);
+  const { token } = useSelector(getUserDetails);
+  return useRoutes(token ? PRIVATE : PUBLIC);
 }
 
 export default Routes;

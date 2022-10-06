@@ -1,9 +1,14 @@
 import type { BaseQueryFn } from '@reduxjs/toolkit/query'
 import axios, { AxiosRequestConfig, AxiosError } from "axios"
+import { baseUrl } from './endpoints';
 
 type BaseUrlType = {
     baseUrl: string;
 }
+
+export const Instance = axios.create({
+  baseURL: `${baseUrl()}`,
+})
 
 export const axiosBaseQuery = ({ baseUrl }: BaseUrlType = { baseUrl: '' }): BaseQueryFn<
     {

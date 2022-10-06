@@ -1,2 +1,2 @@
-export { useGetUserDetailsQuery, useLazyGetUserDetailsQuery, useAddUserDetailsMutation } from './users';
-export type { UserDetailsTypes } from './types';
+export { useGetUserDetailsQuery, useLazyGetUserDetailsQuery, useAddUserDetailsMutation } from './auth.service';
+export type { UserDetailsTypes } from './auth.types';
