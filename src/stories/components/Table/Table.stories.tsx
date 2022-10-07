@@ -7,7 +7,7 @@ import { ROWS, COLUMNS, RenderCell } from './data';
 import Table from '.';
 
 export default {
-  title: 'Table',
+  title: 'example/Table',
   component: Table,
 } as ComponentMeta<typeof Table>;
 

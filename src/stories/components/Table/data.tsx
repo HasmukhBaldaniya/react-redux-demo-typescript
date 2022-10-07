@@ -1,10 +1,9 @@
 import { GridRenderCellParams, GridColDef } from '@mui/x-data-grid';
-import { SelectChangeEvent } from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import MenuItem from '@mui/material/MenuItem';
 
 import Table from '.';
-import Select from '../Select';
 
 export const RenderCell = (params: GridRenderCellParams) => {
   const { row } = params;
