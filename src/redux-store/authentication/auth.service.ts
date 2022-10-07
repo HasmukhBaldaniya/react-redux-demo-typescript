@@ -1,5 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { axiosBaseQuery } from '../../utils/axios';
+import { getHeaders } from '../../utils/constant';
 import { baseUrl, getProductUrl } from '../../utils/endpoints';
 
 export const userApi = createApi({
@@ -13,10 +14,7 @@ export const userApi = createApi({
           url: getProductUrl(),
           method: `GET`,
           params: qParams,
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ',
-          },
+          headers: getHeaders()
         };
       },
     }),
@@ -26,10 +24,7 @@ export const userApi = createApi({
           url: 'product',
           method: 'POST',
           data: params,
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ',
-          },
+          headers: getHeaders()
         };
       },
     }),
@@ -40,6 +35,7 @@ export const userApi = createApi({
           url: 'auth/login',
           method: 'POST',
           data: body,
+          headers: getHeaders()
         };
       },
     }),

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { authApi } from "./auth.action";
 type InitialStateType = {
@@ -15,8 +15,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setToken: (state, payload) => {
-      state.token = payload.payload.token
-    }
+      state.token = payload.payload.token;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(authApi.pending, (state, payload) => ({
@@ -24,17 +24,17 @@ const authSlice = createSlice({
       loading: true,
       error: null,
     })),
-    builder.addCase(authApi.fulfilled, (state, payload) => ({
-      ...state,
-      loading: false,
-      error: null,
-      token: payload.payload.data.token,
-    })),
-    builder.addCase(authApi.rejected, (state, payload) => ({
-      ...state,
-      loading: false,
-      error: payload,
-    }));
+      builder.addCase(authApi.fulfilled, (state, payload) => ({
+        ...state,
+        loading: false,
+        error: null,
+        token: payload.payload.data.token,
+      })),
+      builder.addCase(authApi.rejected, (state, payload) => ({
+        ...state,
+        loading: false,
+        error: payload,
+      }));
   },
 });
 
