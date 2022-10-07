@@ -20,4 +20,4 @@ export const productApi = createApi({
   }),
 });
 
-export const { useGetProductsQuery } = productApi;
+export const { useGetProductsQuery, useLazyGetProductsQuery } = productApi;

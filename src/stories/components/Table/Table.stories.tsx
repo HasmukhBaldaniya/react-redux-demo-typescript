@@ -15,17 +15,21 @@ const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
 
 export const BasicTableWithPagination = Template.bind({});
 BasicTableWithPagination.args = {
+  dimension: {
+    height: '70vh',
+    width: '100%',
+  },
   dataGridProps: {
     columns: COLUMNS,
     rows: ROWS,
     checkboxSelection: true,
     disableSelectionOnClick: true,
     disableColumnMenu: true,
-    pagination: true,
+    // pagination: true,
     autoHeight: true,
     pageSize: 10,
     page: 0,
-    hideFooter: true,
+    hideFooter: false,
   },
   paginationProps: {
     rowsPerPageOption: [10, 20, 30],
@@ -44,6 +48,10 @@ BasicTableWithPagination.args = {
 export const TableWithoutPagintion = Template.bind({});
 
 TableWithoutPagintion.args = {
+  dimension: {
+    height: '70vh',
+    width: '100%',
+  },
   dataGridProps: {
     columns: COLUMNS,
     rows: ROWS,

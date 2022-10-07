@@ -37,6 +37,7 @@ function Pagination({
       alignItems="center"
       margin={1}
       padding={1}
+      width="100%"
     >
       <Stack direction="row" alignItems="center" spacing={1}>
         <Typography fontSize={'.9rem'}>Rows per page</Typography>
