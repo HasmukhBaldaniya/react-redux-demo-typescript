@@ -1,10 +1,9 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
-import { axiosBaseQuery } from '../../utils/axios';
-import { getHeaders } from '../../utils/constant';
-import { baseUrl, getProductUrl } from '../../utils/endpoints';
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { axiosBaseQuery } from "../../utils/axios";
+import { baseUrl, getProductUrl } from "../../utils/endpoints";
 
 export const userApi = createApi({
-  reducerPath: 'testUser',
+  reducerPath: "testUser",
   baseQuery: axiosBaseQuery({ baseUrl: baseUrl() }),
   tagTypes: [],
   endpoints: (builder) => ({
@@ -14,17 +13,15 @@ export const userApi = createApi({
           url: getProductUrl(),
           method: `GET`,
           params: qParams,
-          headers: getHeaders()
         };
       },
     }),
     addUserDetails: builder.mutation({
       query: (params) => {
         return {
-          url: 'product',
-          method: 'POST',
+          url: "product",
+          method: "POST",
           data: params,
-          headers: getHeaders()
         };
       },
     }),
@@ -32,10 +29,9 @@ export const userApi = createApi({
     loginUser: builder.mutation({
       query: (body) => {
         return {
-          url: 'auth/login',
-          method: 'POST',
+          url: "auth/login",
+          method: "POST",
           data: body,
-          headers: getHeaders()
         };
       },
     }),

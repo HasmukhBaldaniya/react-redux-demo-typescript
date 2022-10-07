@@ -7,7 +7,14 @@ type BaseUrlType = {
 };
 
 export const Instance = axios.create({
-  baseURL: `${baseUrl()}`,
+  baseURL: `${baseUrl()}`, 
+});
+
+Instance.interceptors.request.use((config: any) => {
+  if (localStorage.getItem("token")) {
+      config.headers.Authorization = 'Bearer ' + localStorage.getItem("token");
+  }
+  return config;
 });
 
 export const axiosBaseQuery =
@@ -25,7 +32,7 @@ export const axiosBaseQuery =
   > =>
   async ({ url, method, data, params }) => {
     try {
-      const result = await axios({ url: baseUrl + url, method, data, params });
+      const result = await Instance({ url: baseUrl + url, method, data, params });
       return { data: result.data };
     } catch (axiosError) {
       let err = axiosError as AxiosError;

@@ -1,1 +1,1 @@
-export { useGetProductsQuery, productApi } from './slice';
+export { useGetProductsQuery, productApi } from './product.slice';

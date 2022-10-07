@@ -20,7 +20,6 @@ function App() {
     }
   }, []);
 
-  console.log(isLoading);
   return isLoading ? (
     'Loading.....'
   ) : (

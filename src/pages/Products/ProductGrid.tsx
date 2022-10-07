@@ -3,7 +3,7 @@ import { GridColDef, GridToolbarContainer } from '@mui/x-data-grid';
 import { useGetProductsQuery } from '../../redux-store/product';
 import Table from '../../stories/components/Table';
 import Pagination from '../../stories/components/Pagination';
-import { useLazyGetProductsQuery } from '../../redux-store/product/slice';
+import { useLazyGetProductsQuery } from '../../redux-store/product/product.slice';
 
 const columns: GridColDef[] = [
   {
