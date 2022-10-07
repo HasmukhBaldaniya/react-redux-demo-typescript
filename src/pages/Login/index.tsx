@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authApi } from "../../redux-store/authentication/auth.action";
 import { store } from "../../redux-store/store";
+import { toastMessage } from "../../redux-store/toast/toast.slice";
 
 const CREDS = { username: "mor_2314", password: "83r5^_" };
 
@@ -18,6 +19,7 @@ function Login() {
       if(response.data.token) {
         localStorage.setItem('token', response.data.token);
         navigate('/product');
+        dispatch(toastMessage({type: 'success', message: 'Logged in success'}));
       }
     } catch (error) {
       console.log(error);

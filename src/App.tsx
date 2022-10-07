@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes } from 'react-router-dom';
-import { Routes as AppRoutess } from './routes';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { store } from './redux-store/store';
-import { setToken } from './redux-store/authentication/auth.slice';
+import { BrowserRouter, Routes } from "react-router-dom";
+import { Routes as AppRoute } from "./routes";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { store } from "./redux-store/store";
+import { setToken } from "./redux-store/authentication/auth.slice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const dispatch = useDispatch<typeof store.dispatch>();
@@ -11,7 +13,7 @@ function App() {
   useEffect(() => {
     setIsLoading(true);
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (token) {
         dispatch(setToken({ token }));
       }
@@ -21,10 +23,19 @@ function App() {
   }, []);
 
   return isLoading ? (
-    'Loading.....'
+    "Loading....."
   ) : (
     <BrowserRouter>
-      <AppRoutess />
+      <AppRoute />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        theme={'colored'}
+        pauseOnFocusLoss
+      />
     </BrowserRouter>
   );
 }
