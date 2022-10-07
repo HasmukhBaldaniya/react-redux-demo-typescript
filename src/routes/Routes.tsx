@@ -1,41 +1,46 @@
-import React from "react";
-import { Navigate, Outlet, RouteObject, useRoutes } from "react-router-dom";
-import Login from "../pages/Login";
-import ProductLanding from "../pages/Products/ProductLanding";
-import { getUserDetails } from "../redux-store/authentication/auth.slice";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { Navigate, Outlet, RouteObject, useRoutes } from 'react-router-dom';
+import Login from '../pages/Login';
+import ProductLanding from '../pages/Products/ProductLanding';
+import { getUserDetails } from '../redux-store/authentication/auth.slice';
+import { useSelector } from 'react-redux';
+import ProductGrid from '../pages/Products/ProductGrid';
 
 const PRIVATE: RouteObject[] = [
   {
-    path: "/product",
+    path: '/product',
     element: <Outlet />,
     children: [
       {
-        path: "",
+        path: '',
         element: <ProductLanding />,
+      },
+      {
+        path: 'grid',
+        element: <ProductGrid />,
       },
     ],
   },
   {
-    path: "*",
-    element: <Navigate to={"product"} />,
+    path: '*',
+    element: <Navigate to={'product'} />,
   },
 ];
 
 const PUBLIC: RouteObject[] = [
   {
-    path: "/login",
+    path: '/login',
     element: <Outlet />,
     children: [
       {
-        path: "",
+        path: '',
         element: <Login />,
       },
     ],
   },
   {
-    path: "*",
-    element: <Navigate to={"login"} />,
+    path: '*',
+    element: <Navigate to={'login'} />,
   },
 ];
 
