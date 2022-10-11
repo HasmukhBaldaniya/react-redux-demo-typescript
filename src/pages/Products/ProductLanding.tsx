@@ -6,8 +6,8 @@ import { useDispatch } from 'react-redux';
 import { store } from '../../redux-store/store';
 import { setToken } from '../../redux-store/authentication/auth.slice';
 import { useNavigate } from 'react-router-dom';
-import { useAddToCart } from '../../hooks/addToCart.hook';
 import ProductCart from './ProductCart';
+import { useAddToCart } from '../../hooks/addToCart.hook';
 
 function ProductLanding() {
   const dispatch = useDispatch<typeof store.dispatch>();
