@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from "react";
 import {
   Card,
   CardContent,
@@ -7,8 +6,8 @@ import {
   Stack,
   Typography,
   Rating,
-} from '@mui/material';
-import { TypeSpecimen } from '@mui/icons-material';
+  Button,
+} from "@mui/material";
 
 type ProductCardProp = {
   imageUrl: string;
@@ -17,6 +16,8 @@ type ProductCardProp = {
   description: string;
   count: number;
   price: number;
+  id: number;
+  addToCart: Function;
 };
 
 function ProductCard({
@@ -26,14 +27,27 @@ function ProductCard({
   description,
   count,
   price,
+  id,
+  addToCart,
 }: ProductCardProp) {
   return (
     <Card
       sx={{
-        maxHeight: '500px',
+        maxHeight: "500px",
       }}
     >
       <CardMedia component="img" height="200px" alt="" image={imageUrl} />
+      <div className="text-center mt-10">
+        <Button
+          variant="outlined"
+          onClick={(e) =>
+            addToCart({ id: id, title: title, image: imageUrl, price: price })
+          }
+        >
+          Add to Cart
+        </Button>
+      </div>
+
       <CardContent>
         <Stack justifyContent="space-between">
           <Typography component="span" fontWeight="bold" fontSize={23}>
@@ -44,10 +58,10 @@ function ProductCard({
           </Typography>
         </Stack>
         <Stack alignItems="center" display="flex" direction="row" spacing={2}>
-          <Rating name="read-only" precision={0.1} value={rating} readOnly />{' '}
+          <Rating name="read-only" precision={0.1} value={rating} readOnly />{" "}
           <Typography variant="caption">({count})</Typography>
         </Stack>
-        <Typography fontSize={14} sx={{ color: 'text.secondary' }}>
+        <Typography fontSize={14} sx={{ color: "text.secondary" }}>
           {description}
         </Typography>
       </CardContent>
