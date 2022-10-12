@@ -4,7 +4,7 @@ import { useGetProductsQuery } from '../../redux-store/product';
 import Table from '../../stories/components/Table';
 import Pagination from '../../stories/components/Pagination';
 import { useLazyGetProductsQuery } from '../../redux-store/product/product.slice';
-import useCounter from '../../hooks';
+import { useCounter } from '../../hooks';
 
 const columns: GridColDef[] = [
   {
@@ -53,8 +53,12 @@ function ProductGrid() {
   return (
     <div style={{ width: '70%', margin: 'auto' }}>
       <div>
-        <button type='button' onClick={addCount}>Increment Count</button>
-        <button type='button' onClick={subCount}>Decrement Count</button>
+        <button type="button" onClick={addCount}>
+          Increment Count
+        </button>
+        <button type="button" onClick={subCount}>
+          Decrement Count
+        </button>
         <br />
         {state.count}
       </div>
