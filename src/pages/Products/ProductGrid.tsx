@@ -53,8 +53,12 @@ function ProductGrid() {
   return (
     <div style={{ width: '70%', margin: 'auto' }}>
       <div>
-        <button type='button' onClick={addCount}>Increment Count</button>
-        <button type='button' onClick={subCount}>Decrement Count</button>
+        <button type="button" onClick={addCount}>
+          Increment Count
+        </button>
+        <button type="button" onClick={subCount}>
+          Decrement Count
+        </button>
         <br />
         {state.count}
       </div>
