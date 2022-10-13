@@ -5,6 +5,7 @@ import ProductLanding from '../pages/Products/ProductLanding';
 import { getUserDetails } from '../redux-store/authentication/auth.slice';
 import { useSelector } from 'react-redux';
 import ProductGrid from '../pages/Products/ProductGrid';
+import MemoDemo from '../pages/example/MemoDemo';
 
 const PRIVATE: RouteObject[] = [
   {
@@ -20,6 +21,10 @@ const PRIVATE: RouteObject[] = [
         element: <ProductGrid />,
       },
     ],
+  },
+  {
+    path: '/memodemo',
+    element: <MemoDemo />,
   },
   {
     path: '*',
