@@ -4,7 +4,7 @@ import { useGetProductsQuery } from '../../redux-store/product';
 import Table from '../../stories/components/Table';
 import Pagination from '../../stories/components/Pagination';
 import { useLazyGetProductsQuery } from '../../redux-store/product/product.slice';
-import useCounter from '../../hooks';
+import useCounter from '../../hooks/couter.hook';
 
 const columns: GridColDef[] = [
   {
